@@ -35,6 +35,9 @@ public class Consola {
         System.out.println("1. Agregar disco");
         System.out.println("2. Salir");
         System.out.println("3. Ver coleccion");
+        System.out.println("4. Buscar disco");
+        System.out.println("5. Ver cantidad de discos agregados");
+        System.out.println("6. Ver espacios disponibles");
     }
 
     /**
@@ -51,6 +54,8 @@ public class Consola {
             }
             case "3" -> gestor.imprimirColeccion();
             case "4" -> gestor.buscarDisco();
+            case "5" -> gestor.imprimirCantidadDiscosAgregados();
+            case "6" -> gestor.obtenerEspaciosDisponibles();
             default -> System.out.println("Opcion invalida");
         }
     }

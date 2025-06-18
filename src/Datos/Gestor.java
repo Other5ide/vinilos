@@ -13,7 +13,6 @@ public class Gestor {
     }
 
     public void agregarDisco() {
-        System.out.println();
         System.out.println("Ingrese el titulo del disco: ");
         String usuarioTitulo = scanner.nextLine();
         System.out.println("Ingrese el artista del disco: ");
@@ -24,7 +23,7 @@ public class Gestor {
         while (!añoValidoIngresado){
             System.out.println("Ingrese el año de salida del disco");
             try {
-            usuarioAño = scanner.nextInt();
+            usuarioAño = Integer.parseInt(scanner.nextLine());
             añoValidoIngresado = esAñoValido(usuarioAño);
         } catch (Exception e) {
             System.out.println("Año ingresado invalido");
@@ -45,7 +44,7 @@ public class Gestor {
     }
 
     public void imprimirColeccion(){
-        coleccion.imprimirNombreDiscos();
+        coleccion.imprimirDatosDiscos();
     }
 
     public void imprimirCantidadDiscosAgregados() {
@@ -53,13 +52,17 @@ public class Gestor {
     }
 
     public void buscarDisco(){
-        System.out.println("El disco esta");
+        System.out.println("Ingrese el nombre del disco a buscar: ");
         String busquedaUsuario = scanner.nextLine();
-        if (coleccion.discoEstaEnLaLista(busquedaUsuario)) {
+        if (coleccion.nombreDiscoEstaEnLaLista(busquedaUsuario)) {
             System.out.println("Disco: '"+busquedaUsuario+ "'' encontrado en la coleccion");
         } else {
             System.out.println("Disco '"+busquedaUsuario+ "'' no esta en la coleccion");
         }
+    }
+
+    public void obtenerEspaciosDisponibles() {
+        System.out.println("Espacios disponibles en la coleccion: "+(100-coleccion.getListaDiscosSize()));
     }
 
     
